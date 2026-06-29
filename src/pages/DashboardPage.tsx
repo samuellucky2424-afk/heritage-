@@ -120,8 +120,14 @@ export default function DashboardPage() {
                             <div className="flex items-center gap-4">
                               <span className="text-lg font-semibold font-mono">${order.total.toLocaleString()}</span>
                               <Link
-                                to={`/track?tracking=${order.trackingNumber}`}
+                                to={`/receipt/${order.id}`}
                                 className="flex items-center gap-1 text-[#e4002b] text-sm font-medium hover:underline"
+                              >
+                                Receipt <ChevronRight size={14} />
+                              </Link>
+                              <Link
+                                to={`/track?tracking=${order.trackingNumber}`}
+                                className="flex items-center gap-1 text-gray-500 text-sm font-medium hover:text-black hover:underline"
                               >
                                 Track <ChevronRight size={14} />
                               </Link>

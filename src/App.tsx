@@ -16,6 +16,7 @@ import TrackPage from '@/pages/TrackPage';
 import CheckoutPage from '@/pages/CheckoutPage';
 import AdminPage from '@/pages/AdminPage';
 import AdminLoginPage from '@/pages/AdminLoginPage';
+import ReceiptPage from '@/pages/ReceiptPage';
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/track" element={<TrackPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/receipt/:id" element={<ReceiptPage />} />
                 <Route path="/admin/heritage/login" element={<AdminLoginPage />} />
                 <Route path="/admin" element={<AdminPage />} />
               </Routes>

@@ -95,14 +95,20 @@ export default function CheckoutPage() {
           </div>
           <div className="flex gap-4 justify-center">
             <Link
-              to={`/track?tracking=${newTrackingNumber}`}
+              to={`/receipt/${newOrderId}`}
               className="inline-flex items-center gap-2 bg-[#e4002b] text-white px-6 py-3 text-sm font-semibold hover:bg-black transition-all"
+            >
+              View Receipt
+            </Link>
+            <Link
+              to={`/track?tracking=${newTrackingNumber}`}
+              className="inline-flex items-center gap-2 border border-black text-black px-6 py-3 text-sm font-semibold hover:bg-black hover:text-white transition-all"
             >
               <Truck size={16} /> Track Order
             </Link>
             <Link
               to="/shop"
-              className="inline-flex items-center gap-2 border border-black text-black px-6 py-3 text-sm font-semibold hover:bg-black hover:text-white transition-all"
+              className="inline-flex items-center gap-2 border border-gray-200 text-gray-600 px-6 py-3 text-sm font-semibold hover:border-black hover:text-black transition-all"
             >
               Continue Shopping
             </Link>

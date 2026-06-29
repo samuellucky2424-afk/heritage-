@@ -59,6 +59,7 @@ export default function AdminPage() {
   const [deliveryNotes, setDeliveryNotes] = useState('');
   const [createOrderLoading, setCreateOrderLoading] = useState(false);
   const [createdTracking, setCreatedTracking] = useState('');
+  const [createdOrderId, setCreatedOrderId] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
   const [orderError, setOrderError] = useState('');
 
@@ -292,6 +293,7 @@ export default function AdminPage() {
         createdBy: user?.id || null,
       });
       setCreatedTracking(order.trackingNumber);
+      setCreatedOrderId(order.id);
       setOrderItems([]);
       setManualCustomer({ name: '', email: '', address: '' });
       setSelectedCustomerId('');
@@ -532,16 +534,19 @@ export default function AdminPage() {
                       </td>
                       <td className="py-3 text-right font-mono">${order.total.toLocaleString()}</td>
                       <td className="py-3 text-right">
-                        <select
-                          value={order.status}
-                          onChange={(e) => handleStatusChange(order.id, e.target.value as OrderStatus)}
-                          disabled={actionLoading}
-                          className="bg-white/5 border border-white/10 text-white text-xs px-2 py-1 focus:outline-none disabled:opacity-50"
-                        >
-                          {(['Pending', 'Processing', 'Packed', 'Shipped', 'In Transit', 'Delivered'] as OrderStatus[]).map(s => (
-                            <option key={s} value={s} className="bg-black text-white">{s}</option>
-                          ))}
-                        </select>
+                        <div className="flex items-center justify-end gap-2">
+                          <Link to={`/receipt/${order.id}`} className="text-white/40 hover:text-white text-xs underline transition-colors">Receipt</Link>
+                          <select
+                            value={order.status}
+                            onChange={(e) => handleStatusChange(order.id, e.target.value as OrderStatus)}
+                            disabled={actionLoading}
+                            className="bg-white/5 border border-white/10 text-white text-xs px-2 py-1 focus:outline-none disabled:opacity-50"
+                          >
+                            {(['Pending', 'Processing', 'Packed', 'Shipped', 'In Transit', 'Delivered'] as OrderStatus[]).map(s => (
+                              <option key={s} value={s} className="bg-black text-white">{s}</option>
+                            ))}
+                          </select>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -593,10 +598,13 @@ export default function AdminPage() {
             <h2 className="text-lg font-semibold mb-6">Create Order for Customer</h2>
 
             {createdTracking && (
-              <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 text-green-200 text-sm flex items-center gap-3">
-                <CheckCircle size={18} />
-                Order created. Tracking number: <span className="font-mono font-semibold">{createdTracking}</span>
-                <button onClick={() => setCreatedTracking('')} className="ml-auto text-green-200 hover:text-white"><X size={16} /></button>
+              <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 text-green-200 text-sm">
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={18} />
+                  <span>Order created. Tracking: <span className="font-mono font-semibold">{createdTracking}</span></span>
+                  <Link to={`/receipt/${createdOrderId}`} className="ml-2 px-3 py-1 bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors">View Receipt</Link>
+                  <button onClick={() => { setCreatedTracking(''); setCreatedOrderId(''); }} className="ml-auto text-green-200 hover:text-white"><X size={16} /></button>
+                </div>
               </div>
             )}
 
