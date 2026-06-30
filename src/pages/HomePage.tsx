@@ -1,20 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ArrowRight, ChevronRight, ShoppingCart, Shield, Clock, Package, Wrench, Factory, HardHat, Loader2 } from 'lucide-react';
+import { ArrowRight, ChevronRight, Shield, Clock, Package, Wrench, Factory, HardHat, Loader2 } from 'lucide-react';
 import { newsItems } from '@/data/products';
 import { useProducts } from '@/context/ProductContext';
-import { useCart } from '@/context/CartContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const trendingTags = ['Pipes', 'Valves', 'Drilling Tools', 'Pumps', 'Safety Equipment'];
-
 export default function HomePage() {
-  const { addToCart } = useCart();
   const { products, loading } = useProducts();
-  const [searchQuery, setSearchQuery] = useState('');
   const heroRef = useRef<HTMLDivElement>(null);
   const valueRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
@@ -124,44 +119,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Search & Trending Section */}
-      <section className="relative z-20 -mt-16 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.12)] p-6">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search parts, materials, and equipment..."
-              className="w-full pl-12 pr-4 py-4 bg-gray-50 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#e4002b]/20"
-            />
-          </div>
-          {searchQuery && (
-            <div className="mt-4 flex items-center gap-3">
-              <Link
-                to={`/shop?search=${encodeURIComponent(searchQuery)}`}
-                className="inline-flex items-center gap-2 bg-[#e4002b] text-white px-4 py-2 text-sm font-semibold hover:bg-black transition-colors"
-              >
-                Search catalog for "{searchQuery}" <ArrowRight size={14} />
-              </Link>
-            </div>
-          )}
-          <div className="flex items-center gap-4 mt-4 overflow-x-auto pb-2">
-            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Trending:</span>
-            {trendingTags.map((tag) => (
-              <Link
-                key={tag}
-                to={`/shop?category=${encodeURIComponent(tag)}`}
-                className="flex items-center gap-1 text-[#e4002b] text-sm font-medium whitespace-nowrap hover:underline"
-              >
-                {tag} <ChevronRight size={14} />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Value Proposition */}
       <section ref={valueRef} className="py-24 md:py-32 px-6">
         <div className="value-content max-w-3xl mx-auto text-center">
@@ -240,16 +197,6 @@ export default function HomePage() {
                     <Link to={`/product/${product.id}`}>
                       <h3 className="text-sm font-semibold text-black mb-2 group-hover:text-[#e4002b] transition-colors">{product.name}</h3>
                     </Link>
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-semibold font-mono">${product.price.toLocaleString()}</span>
-                      <button
-                        onClick={() => addToCart(product)}
-                        className="p-2 bg-[#e4002b] text-white hover:bg-black transition-colors"
-                        title="Add to cart"
-                      >
-                        <ShoppingCart size={16} />
-                      </button>
-                    </div>
                   </div>
                 </div>
               ))}

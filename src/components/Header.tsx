@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
+import { Search, User, Menu, X } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Header() {
-  const { totalItems, setIsOpen } = useCart();
   const { user, logout } = useAuth();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -77,20 +75,6 @@ export default function Header() {
             >
               <Search size={18} />
             </button>
-
-            {user && (
-              <button
-                onClick={() => setIsOpen(true)}
-                className={`relative p-2 transition-colors ${isTransparent ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
-              >
-                <ShoppingCart size={18} />
-                {totalItems > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#e4002b] text-white text-[10px] font-bold flex items-center justify-center rounded-full">
-                    {totalItems}
-                  </span>
-                )}
-              </button>
-            )}
 
             {user ? (
               <button

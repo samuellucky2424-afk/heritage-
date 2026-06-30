@@ -1,15 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Search, ShoppingCart, Filter, SlidersHorizontal, Loader2 } from 'lucide-react';
+import { Search, Filter, SlidersHorizontal, Loader2 } from 'lucide-react';
 import { useProducts } from '@/context/ProductContext';
-import { useCart } from '@/context/CartContext';
 
 export default function ShopPage() {
   const [searchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';
   const initialSearch = searchParams.get('search') || '';
   const { products, categories, loading } = useProducts();
-  const { addToCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 50000]);
@@ -187,16 +185,9 @@ export default function ShopPage() {
                     <h3 className="text-base font-semibold text-black mb-1 group-hover:text-[#e4002b] transition-colors line-clamp-1">{product.name}</h3>
                   </Link>
                   <p className="text-xs text-gray-400 font-mono mb-3">{product.partNumber}</p>
-                  <p className="text-sm text-gray-500 line-clamp-2 mb-4">{product.description}</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <span className="text-lg font-semibold font-mono">${product.price.toLocaleString()}</span>
-                    <button
-                      onClick={() => addToCart(product)}
-                      disabled={product.stock === 0}
-                      className="flex items-center gap-2 px-4 py-2 bg-[#e4002b] text-white text-sm font-medium hover:bg-black transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
-                    >
-                      <ShoppingCart size={14} /> Add
-                    </button>
+                  <p className="text-sm text-gray-500 line-clamp-3">{product.description}</p>
+                  <div className="pt-3 border-t border-gray-100 mt-3">
+                    <Link to={`/product/${product.id}`} className="text-[#e4002b] text-sm font-medium hover:underline">View Details →</Link>
                   </div>
                 </div>
               </div>

@@ -1,15 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingCart, Check, Minus, Plus, Loader2 } from 'lucide-react';
+import { ArrowLeft, Check, Loader2 } from 'lucide-react';
 import { useProducts } from '@/context/ProductContext';
-import { useCart } from '@/context/CartContext';
-import { useState } from 'react';
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { getProductById, products, loading } = useProducts();
-  const { addToCart } = useCart();
-  const [quantity, setQuantity] = useState(1);
-  const [addedToCart, setAddedToCart] = useState(false);
 
   const product = id ? getProductById(id) : undefined;
   const relatedProducts = products.filter(p => p.category === product?.category && p.id !== id).slice(0, 3);
@@ -32,14 +27,6 @@ export default function ProductDetailPage() {
       </div>
     );
   }
-
-  const handleAddToCart = () => {
-    for (let i = 0; i < quantity; i++) {
-      addToCart(product);
-    }
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2000);
-  };
 
   return (
     <div className="min-h-screen bg-white pt-24">
@@ -71,9 +58,6 @@ export default function ProductDetailPage() {
               {product.name}
             </h1>
             <p className="text-sm text-gray-400 font-mono mb-4">Part #: {product.partNumber}</p>
-            <p className="text-3xl font-semibold font-mono text-black mb-6">
-              ${product.price.toLocaleString()}
-            </p>
 
             <div className={`inline-flex items-center gap-1 text-sm font-medium mb-6 w-fit px-3 py-1 ${product.stock > 10 ? 'bg-green-50 text-green-700' : product.stock > 0 ? 'bg-yellow-50 text-yellow-700' : 'bg-red-50 text-red-700'}`}>
               <Check size={14} />
@@ -82,47 +66,12 @@ export default function ProductDetailPage() {
 
             <p className="text-gray-600 leading-relaxed mb-8">{product.description}</p>
 
-            {/* Quantity */}
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-sm font-medium">Quantity:</span>
-              <div className="flex items-center border border-gray-200">
-                <button
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-3 py-2 hover:bg-gray-100 transition-colors"
-                >
-                  <Minus size={16} />
-                </button>
-                <span className="px-4 py-2 text-sm font-semibold min-w-[3rem] text-center">{quantity}</span>
-                <button
-                  onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                  className="px-3 py-2 hover:bg-gray-100 transition-colors"
-                >
-                  <Plus size={16} />
-                </button>
-              </div>
-            </div>
-
-            {/* Add to Cart */}
-            <div className="flex gap-4">
-              <button
-                onClick={handleAddToCart}
-                disabled={product.stock === 0}
-                className={`flex-1 flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold transition-all duration-300 ${
-                  addedToCart
-                    ? 'bg-green-600 text-white'
-                    : 'bg-[#e4002b] text-white hover:bg-black'
-                } disabled:bg-gray-300 disabled:cursor-not-allowed`}
-              >
-                {addedToCart ? (
-                  <><Check size={16} /> Added to Cart</>
-                ) : (
-                  <><ShoppingCart size={16} /> Add to Cart</>
-                )}
-              </button>
-              <button className="flex-1 px-8 py-4 border border-black text-sm font-semibold hover:bg-black hover:text-white transition-all duration-300">
-                Request Quote
-              </button>
-            </div>
+            <Link
+              to="/track"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#e4002b] text-white text-sm font-semibold hover:bg-black transition-all duration-300 w-fit"
+            >
+              Track Order
+            </Link>
           </div>
         </div>
 
