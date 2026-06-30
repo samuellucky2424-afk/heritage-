@@ -186,7 +186,7 @@ export default function TrackPage() {
                         {order.status === 'Delivered' ? 'Delivered' : '5-7 business days from order date'}
                       </p>
                       <p className="text-sm text-gray-500 mt-1">
-                        Carrier: Heritage Freight Logistics
+                        Carrier: Seagate Metals Logistics
                       </p>
                     </div>
                     {order.deliveryNotes && (

@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
             <Shield size={32} className="text-white" />
           </div>
           <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-[#e4002b] font-bold text-lg tracking-tight">HERITAGE</span>
+            <span className="text-[#e4002b] font-bold text-lg tracking-tight">SEAGATE</span>
             <span className="text-white/40">|</span>
             <span className="text-white text-sm font-medium">ADMIN PORTAL</span>
           </div>
@@ -115,7 +115,7 @@ export default function AdminLoginPage() {
             onClick={() => navigate('/')}
             className="text-white/30 text-xs hover:text-white/60 transition-colors"
           >
-            ← Back to Heritage Industrial Supply
+            ← Back to Seagate Metals
           </button>
         </div>
       </div>

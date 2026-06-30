@@ -19,9 +19,9 @@ export default function CheckoutPage() {
     city: '',
     state: '',
     zip: '',
-    senderName: 'Heritage Industrial Supply',
+    senderName: 'Seagate Metals',
     senderAddress: '4500 Energy Drive, Houston, TX 77032',
-    senderPhone: '+1 (713) 555-0142',
+    senderPhone: '',
     destination: '',
     deliveryNotes: '',
   });

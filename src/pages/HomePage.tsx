@@ -94,7 +94,7 @@ export default function HomePage() {
         <div className="relative z-10 h-full flex flex-col justify-end pb-32 px-6 md:px-16 max-w-7xl mx-auto">
           <div className="animate-fade-in-up">
             <p className="text-[#e4002b] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-              Heritage Industrial Supply
+              SEAGATE METALS
             </p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-[0.9] tracking-tight mb-6">
               Reliable Rig<br />Materials &<br />Industrial Supply
@@ -169,7 +169,7 @@ export default function HomePage() {
             Technology-driven supply solutions
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            For over 30 years, Heritage Industrial Supply has pioneered efficient consignment logistics 
+            For over 30 years, Seagate Metals has pioneered efficient consignment logistics 
             that empower the global energy industry. Our deep expertise and vast inventory enable customers 
             to source critical rig materials, drilling equipment, and industrial supplies with unmatched speed 
             and reliability. We minimize downtime and maximize operational efficiency across oilfield, 
@@ -268,7 +268,7 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">Why Heritage Industrial Supply</h2>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">Why Seagate Metals</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[

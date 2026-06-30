@@ -44,14 +44,14 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <div className={`w-8 h-8 flex items-center justify-center font-bold text-sm ${isTransparent ? 'bg-[#e4002b] text-white' : 'bg-[#e4002b] text-white'}`}>
-              H
+              S
             </div>
             <div className="hidden sm:block">
               <span className={`text-sm font-semibold tracking-tight ${isTransparent ? 'text-white' : 'text-black'}`}>
-                HERITAGE
+                SEAGATE
               </span>
               <span className={`hidden md:inline text-xs ml-1 ${isTransparent ? 'text-white/60' : 'text-gray-400'}`}>
-                INDUSTRIAL SUPPLY
+                METALS
               </span>
             </div>
           </Link>

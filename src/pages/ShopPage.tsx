@@ -66,7 +66,7 @@ export default function ShopPage() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
-            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Heritage Industrial Supply</p>
+            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Seagate Metals</p>
             <h1 className="text-4xl md:text-5xl font-semibold text-black tracking-tight">Industrial Catalog</h1>
             <p className="text-gray-500 mt-2">{filteredProducts.length} products available</p>
           </div>

@@ -51,7 +51,7 @@ export default function LoginPage() {
       <div className="flex-1 flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
           <div className="mb-8">
-            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Heritage Industrial Supply</p>
+            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Seagate Metals</p>
             <h1 className="text-3xl font-semibold text-black tracking-tight">Account Login</h1>
             <p className="text-gray-500 mt-2">Sign in to access your account</p>
           </div>

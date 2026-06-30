@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,12 +8,12 @@ export default function Footer() {
       <div className="bg-[#e4002b] px-6">
         <div className="max-w-7xl mx-auto py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <h2 className="text-white text-xl font-semibold">Need help? Contact our team</h2>
-          <Link
-            to="/shop"
+          <a
+            href="mailto:consultant@seagatemetals.com"
             className="inline-flex items-center gap-2 bg-white text-[#e4002b] px-6 py-3 text-sm font-semibold hover:bg-black hover:text-white transition-all duration-300"
           >
             Get in Touch <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -23,21 +23,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#e4002b] flex items-center justify-center text-white font-bold text-sm">H</div>
-              <span className="font-semibold tracking-tight">HERITAGE INDUSTRIAL SUPPLY</span>
+              <div className="w-8 h-8 bg-[#e4002b] flex items-center justify-center text-white font-bold text-sm">S</div>
+              <span className="font-semibold tracking-tight">SEAGATE METALS</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-sm">
               Your trusted partner for rig materials and industrial supply solutions. 
-              Serving oil & gas, construction, marine, and heavy industrial sectors since 1996.
+              Serving oil & gas, construction, marine, and heavy industrial sectors.
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-gray-500">
-                <Phone size={14} className="text-[#e4002b]" />
-                <span>+1 (713) 555-0100</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-500">
                 <Mail size={14} className="text-[#e4002b]" />
-                <span>sales@heritageindustrial.com</span>
+                <span>consultant@seagatemetals.com</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-500">
                 <MapPin size={14} className="text-[#e4002b]" />
@@ -87,7 +83,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-gray-400">© 2026 Heritage Industrial Supply. All rights reserved.</p>
+          <p className="text-xs text-gray-400">&copy; 2026 Seagate Metals. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="#" className="text-xs text-gray-400 hover:text-[#e4002b] transition-colors">Privacy Policy</Link>
             <Link to="#" className="text-xs text-gray-400 hover:text-[#e4002b] transition-colors">Terms of Use</Link>

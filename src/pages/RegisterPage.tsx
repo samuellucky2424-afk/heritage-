@@ -52,7 +52,7 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex items-center justify-center p-16">
           <div className="text-white text-center">
-            <h2 className="text-4xl font-semibold mb-4">Join Heritage</h2>
+            <h2 className="text-4xl font-semibold mb-4">Join Seagate Metals</h2>
             <p className="text-white/70 text-lg">Create an account to streamline your industrial supply procurement process.</p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function RegisterPage() {
       <div className="flex-1 flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
           <div className="mb-8">
-            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Heritage Industrial Supply</p>
+            <p className="text-xs text-[#e4002b] font-semibold uppercase tracking-wider mb-2">Seagate Metals</p>
             <h1 className="text-3xl font-semibold text-black tracking-tight">Create Account</h1>
             <p className="text-gray-500 mt-2">Register to get started</p>
           </div>

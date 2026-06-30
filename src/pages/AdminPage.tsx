@@ -51,9 +51,9 @@ export default function AdminPage() {
   const [selectedProductId, setSelectedProductId] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [senderInfo, setSenderInfo] = useState({
-    name: 'Heritage Industrial Supply',
+    name: 'Seagate Metals',
     address: '4500 Energy Drive, Houston, TX 77032',
-    phone: '+1 (713) 555-0142',
+    phone: '',
   });
   const [destination, setDestination] = useState('');
   const [deliveryNotes, setDeliveryNotes] = useState('');

@@ -79,11 +79,11 @@ export default function ReceiptPage() {
           <div className="bg-[#e4002b] px-8 py-6 print:bg-[#e4002b]">
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white flex items-center justify-center font-bold text-[#e4002b] text-xl">H</div>
+                <div className="w-12 h-12 bg-white flex items-center justify-center font-bold text-[#e4002b] text-xl">S</div>
                 <div>
-                  <h1 className="text-xl font-bold text-white tracking-tight">HERITAGE INDUSTRIAL SUPPLY</h1>
+                  <h1 className="text-xl font-bold text-white tracking-tight">SEAGATE METALS</h1>
                   <p className="text-white/80 text-sm">4500 Energy Drive, Houston, TX 77032</p>
-                  <p className="text-white/80 text-sm">+1 (713) 555-0100 | sales@heritageindustrial.com</p>
+                  <p className="text-white/80 text-sm">consultant@seagatemetals.com</p>
                 </div>
               </div>
               <div className="text-right">
@@ -160,7 +160,7 @@ export default function ReceiptPage() {
               <div>
                 <h3 className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-2">Shipping Details</h3>
                 <div className="text-sm">
-                  <p className="text-gray-500">Carrier: Heritage Freight Logistics</p>
+                    <p className="text-gray-500">Carrier: Seagate Metals Logistics</p>
                   <p className="text-gray-500">
                     Est. Delivery: {order.status === 'Delivered' ? 'Delivered' : '5-7 business days'}
                   </p>
@@ -258,7 +258,7 @@ export default function ReceiptPage() {
           <div className="px-8 py-6 bg-gray-50 border-t border-gray-200">
             <div className="text-center text-sm text-gray-400">
               <p className="font-medium text-gray-600 mb-1">Thank you for your business!</p>
-              <p>Heritage Industrial Supply | +1 (713) 555-0100 | sales@heritageindustrial.com</p>
+              <p>Seagate Metals | consultant@seagatemetals.com</p>
               <p className="mt-1">For questions about this order, please reference tracking number: <span className="font-mono font-semibold text-gray-600">{order.trackingNumber}</span></p>
             </div>
           </div>
