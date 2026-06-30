@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Search, Package, Clock, CheckCircle, Truck, MapPin, ChevronRight, AlertCircle, Loader2 } from 'lucide-react';
 import { useOrders } from '@/context/OrderContext';
+import LiveMap from '@/components/LiveMap';
 import type { Order } from '@/types';
 
 const statusSteps = ['Pending', 'Processing', 'Packed', 'Shipped', 'In Transit', 'Delivered'];
@@ -119,6 +120,16 @@ export default function TrackPage() {
                       <p className="text-sm font-semibold font-mono">${order.total.toLocaleString()}</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Live GPS Map */}
+                <div className="mb-8">
+                  <h2 className="text-xl font-semibold mb-4">Live Shipment Tracking</h2>
+                  <LiveMap
+                    senderAddress={order.senderAddress}
+                    destination={order.destination || order.shippingAddress}
+                    status={order.status}
+                  />
                 </div>
 
                 {/* Timeline */}
